@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #output {
+            margin-top: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quantum Game</h1>
+    <p>Click the button to generate quantum bits using a quantum circuit!</p>
+    <button id="generateButton">Generate Quantum Bits</button>
+    <div id="output"></div>
+
+    <script>
+        async function getQuantumBits() {
+            // Make a POST request to the Flask backend
+            const response = await fetch('http://127.0.0.1:5000/run_quantum', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ n_qubits: 8 })  // Change n_qubits if needed
+            });
+
+            // Parse the JSON response
+            const data = await response.json();
+            return data.quantum_result;
+        }
+
+        async function loadGame() {
+            let quantumBits = await getQuantumBits();
+            document.getElementById('output').innerText = `Quantum Bits: ${quantumBits}`;
+        }
+
+        // Add event listener to the button
+        document.getElementById('generateButton').addEventListener('click', loadGame);
+    </script>
+</body>
+</html>

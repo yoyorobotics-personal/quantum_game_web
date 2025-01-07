@@ -1,0 +1,11 @@
+i-02d792906754da593
+cd D:/y7s1/EEE/ee/QC/quantum_game
+ssh -i "key.pem" ubuntu@54.206.58.146
+icacls key.pem /inheritance:r /grant:r "$($env:USERNAME):(R)"
+icacls key.pem
+ubuntu@ec2-54-206-58-146.ap-southeast-2.compute.amazonaws.com
+https://www.youtube.com/watch?v=cTbYAkyxxqE
+icacls "keyRP.pem" /grant:r KK722:F
+C:\Users\kk722\Downloads
+ssh-keygen -y -f key.pem
+
