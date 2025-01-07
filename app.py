@@ -1,5 +1,5 @@
 # app.py
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS  # Import CORS
 from game import run_game  # Import your quantum game logic
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 @app.route('/')
 def home():
-    return "Welcome to my quantum game!"
+    return render_template('index.html')
 
 @app.route('/run_quantum', methods=['POST'])
 def run_quantum():
