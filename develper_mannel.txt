@@ -8,4 +8,7 @@ https://www.youtube.com/watch?v=cTbYAkyxxqE
 icacls "keyRP.pem" /grant:r KK722:F
 C:\Users\kk722\Downloads
 ssh-keygen -y -f key.pem
-
+git remote add origin https://github.com/yoyorobotics-personal/quantum_game_web.git
+git config --global http.proxy 127.0.0.1:7897
+git config --global https.proxy 127.0.0.1:7897
+https://quantum-game-web.onrender.com/

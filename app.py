@@ -5,11 +5,11 @@ from game import run_game  # Import your quantum game logic
 
 app = Flask(__name__)
 CORS(app)
-@app.route('/')
+@app.route('https://quantum-game-web.onrender.com/')
 def home():
     return render_template('index.html')
 
-@app.route('/run_quantum', methods=['POST'])
+@app.route('https://quantum-game-web.onrender.com/run_quantum', methods=['POST'])
 def run_quantum():
     result = run_game()  # Call the function from game.py
     return jsonify({'quantum_result': result})
